@@ -1,0 +1,21 @@
+{
+  "name": "solarsystem",
+  "version": "1.0.0",
+  "description": "3d visualization of the solar system bodies",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "script/main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "vite": "^6.0.11"
+  },
+  "dependencies": {
+    "three": "^0.173.0"
+  }
+}
