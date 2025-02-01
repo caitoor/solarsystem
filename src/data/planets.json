@@ -1,0 +1,83 @@
+[
+    {
+        "name": "Mercury",
+        "texture": "mercury.jpg",
+        "distance": 10,
+        "size": 0.5,
+        "speed": 0.02,
+        "rotationSpeed": 0.05,
+        "color": "#aaaaaa"
+    },
+    {
+        "name": "Venus",
+        "texture": "venus.jpg",
+        "distance": 15,
+        "size": 1.2,
+        "speed": 0.015,
+        "rotationSpeed": 0.04,
+        "color": "#ffcc00"
+    },
+    {
+        "name": "Earth",
+        "texture": "earth.jpg",
+        "distance": 20,
+        "size": 1.3,
+        "speed": 0.01,
+        "rotationSpeed": 0.03,
+        "color": "#0033ff"
+    },
+    {
+        "name": "Mars",
+        "texture": "mars.jpg",
+        "distance": 25,
+        "size": 0.7,
+        "speed": 0.008,
+        "rotationSpeed": 0.03,
+        "color": "#ff3300"
+    },
+    {
+        "name": "Jupiter",
+        "texture": "jupiter.jpg",
+        "distance": 35,
+        "size": 4.0,
+        "speed": 0.005,
+        "rotationSpeed": 0.02,
+        "color": "#ff8800"
+    },
+    {
+        "name": "Saturn",
+        "texture": "saturn.jpg",
+        "distance": 45,
+        "size": 3.5,
+        "speed": 0.004,
+        "rotationSpeed": 0.02,
+        "color": "#ffddaa"
+    },
+    {
+        "name": "Uranus",
+        "texture": "uranus.jpg",
+        "distance": 55,
+        "size": 2.8,
+        "speed": 0.003,
+        "rotationSpeed": 0.015,
+        "color": "#66aaff"
+    },
+    {
+        "name": "Neptune",
+        "texture": "neptune.jpg",
+        "distance": 65,
+        "size": 2.6,
+        "speed": 0.002,
+        "rotationSpeed": 0.015,
+        "color": "#3366ff"
+    },
+    {
+        "name": "Pluto",
+        "texture": "pluto.jpg",
+        "distance": 75,
+        "size": 1,
+        "speed": 0.001,
+        "rotationSpeed": 0.05,
+        "color": "#808080"
+    }
+]
