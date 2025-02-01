@@ -23,21 +23,29 @@ float fbm(vec2 p) {
   for (int i = 0; i < 4; i++) {
     total += noise(p * frequency) * amplitude;
     frequency *= 2.0;
-    amplitude *= 0.5;
+    amplitude *= 0.65;
   }
   return total;
 }
 
 void main() {
   vec2 uv = vUv;
-  float n = fbm(uv * 5.0 + time * 0.2);
-  float brightness = sin(uv.x * 10.0 + time + n * 6.28) * 0.3 + 0.7;
+  // Compute FBM noise and smooth it for a gentler variation.
+  float n = fbm(uv * 20.0 + time * 0.2);
+  float ns = smoothstep(0.3, 0.7, n);
+  
+  // Convert uv.x to a full circle to ensure seamless wrapping.
+  float angle = uv.x * 6.28318; // 2*PI
+  float wave = sin(angle + time + ns * 6.28);
+  
+  // Remap the wave to a brightness value.
+  float brightness = wave * 0.3 + 0.7;
 
-  // Definiere die Farben
-  vec3 brightColor = vec3(1.0, 0.6, 0.0);
-  vec3 darkColor = vec3(0.5, 0.0, 0.0);
+  // Define the two colors: dark (orangerot) and bright (yellow)
+  vec3 darkColor = vec3(0.7, 0.1, 0.1);
+  vec3 brightColor = vec3(1.0, 0.75, 0.0);
 
-  // Interpoliere zwischen darkColor und brightColor
+  // Smoothly interpolate between the dark and bright colors.
   vec3 finalColor = mix(darkColor, brightColor, brightness);
   
   gl_FragColor = vec4(finalColor, 1.0);

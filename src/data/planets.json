@@ -14,7 +14,7 @@
         "distance": 15,
         "size": 1.2,
         "speed": 0.015,
-        "rotationSpeed": 0.04,
+        "rotationSpeed": 0.004,
         "color": "#ffcc00"
     },
     {
