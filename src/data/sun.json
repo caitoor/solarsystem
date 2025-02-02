@@ -1,0 +1,43 @@
+[
+    {
+        "id": "soleil",
+        "name": "Le Soleil",
+        "englishName": "Sun",
+        "isPlanet": false,
+        "moons": null,
+        "semimajorAxis": 0,
+        "perihelion": 0,
+        "aphelion": 0,
+        "eccentricity": 0,
+        "inclination": 0,
+        "mass": {
+            "massValue": 1.989,
+            "massExponent": 30
+        },
+        "vol": {
+            "volValue": 1.412,
+            "volExponent": 18
+        },
+        "density": 1,
+        "gravity": 0,
+        "escape": 0,
+        "meanRadius": 695508,
+        "equaRadius": 696342,
+        "polarRadius": 0,
+        "flattening": 0.00009,
+        "dimension": "",
+        "sideralOrbit": 0,
+        "sideralRotation": 0,
+        "aroundPlanet": null,
+        "discoveredBy": "",
+        "discoveryDate": "",
+        "alternativeName": "",
+        "axialTilt": 7.25,
+        "avgTemp": 0,
+        "mainAnomaly": 0,
+        "argPeriapsis": 0,
+        "longAscNode": 0,
+        "bodyType": "Star",
+        "rel": "https://api.le-systeme-solaire.net/rest/bodies/soleil"
+    }
+]

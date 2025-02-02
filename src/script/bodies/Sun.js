@@ -5,7 +5,7 @@ import SunGlowShader from '../shaders/SunGlowShader.js';
 
 export function createSun(scene, camera) {
     // Sun Mesh
-    const sunGeometry = new THREE.SphereGeometry(5, 64, 64);
+    const sunGeometry = new THREE.SphereGeometry(Math.sqrt(695508 / 20000), 64, 64);
     const sunMaterial = new ShaderMaterial({
         vertexShader: SunShader.vertexShader,
         fragmentShader: SunShader.fragmentShader,
@@ -15,7 +15,7 @@ export function createSun(scene, camera) {
     scene.add(sun);
 
     // Glow Mesh
-    const glowGeometry = new THREE.SphereGeometry(8, 64, 64);
+    const glowGeometry = new THREE.SphereGeometry(Math.sqrt(695508 / 10000), 64, 64);
     const glowMaterial = new ShaderMaterial({
         vertexShader: SunGlowShader.vertexShader,
         fragmentShader: SunGlowShader.fragmentShader,

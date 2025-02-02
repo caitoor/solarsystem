@@ -7,14 +7,14 @@ import { createOrbits } from './bodies/Orbits.js';
 import { updatePlanets } from './animation/Animation.js';
 import { createSun } from './bodies/Sun.js';
 import { createLights } from './system/Lights.js';
+import { initUI } from './interface.js';
 
 const scene = createScene();
 const renderer = createRenderer();
 const camera = createCamera();
 const controls = createControls(camera, renderer);
-
+initUI(camera);
 const { sun, glow, updateGlow } = createSun(scene, camera);
-// Übergib das Sun-Mesh an createLights, sodass das Licht an der Sonne sitzt.
 createLights(scene, sun);
 
 const planets = createPlanets(scene);

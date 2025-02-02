@@ -8,8 +8,8 @@ const SunGlowShader = {
     uniforms: {
         glowColor: { value: new THREE.Color(0xffaa00) },
         viewVector: { value: new THREE.Vector3() },
-        glowFactor: { value: 0.011 },
-        falloffExponent: { value: 8.0 }
+        glowFactor: { value: 0.013 },
+        falloffExponent: { value: 8.5 }
     }
 };
 
