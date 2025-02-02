@@ -3,12 +3,12 @@ import { SCALING_FACTORS } from '../../config/constants.js';
 import { ShaderMaterial, UniformsUtils } from 'three';
 import SunShader from '../shaders/SunShader.js';
 import SunGlowShader from '../shaders/SunGlowShader.js';
-import sunData from '../../data/sun.json'; // Import the Sun data as an object
+import sunData from '../../data/sun.json';
 
 export function createSun(scene, camera) {
     // Use sunData.meanRadius from the JSON to compute the sun's size.
     // Adjust the divisor to control the scale.
-    const sunRadius = Math.sqrt(sunData.meanRadius / SCALING_FACTORS.sunSize);
+    const sunRadius = Math.sqrt(sunData.meanRadius / (SCALING_FACTORS.sun || SCALING_FACTORS.default));
     const sunGeometry = new THREE.SphereGeometry(sunRadius, 64, 64);
     const sunMaterial = new ShaderMaterial({
         vertexShader: SunShader.vertexShader,

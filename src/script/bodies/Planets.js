@@ -7,10 +7,8 @@ export function createPlanets(scene) {
     const planetMeshes = [];
 
     planetsData.forEach((planet) => {
-        // Determine visual size (adjust scaling as desired)
-        const radius = Math.sqrt(planet.meanRadius / SCALING_FACTORS.bodySize);
+        const radius = Math.sqrt(planet.meanRadius / (SCALING_FACTORS.planets || SCALING_FACTORS.default));
         const geometry = new THREE.SphereGeometry(radius, 32, 32);
-        // Load texture based on englishName in lowercase
         const texture = textureLoader.load(`/assets/textures/${planet.englishName.toLocaleLowerCase()}.jpg`);
         const material = new THREE.MeshStandardMaterial({ map: texture });
         const mesh = new THREE.Mesh(geometry, material);
@@ -21,12 +19,13 @@ export function createPlanets(scene) {
         // and add an extra orbital orientation parameter:
         const argument = planet.argPeriapsis || 0; // in degrees
         mesh.userData = {
+            id: planet.id,
             angle: Math.random() * Math.PI * 2,
-            speed: 1 / planet.sideralOrbit,
-            distance: Math.sqrt(planet.semimajorAxis / SCALING_FACTORS.orbits),
+            orbitalSpeed: (2 * Math.PI) / planet.sideralOrbit, //around the sun
+            distance: Math.sqrt(planet.semimajorAxis / (SCALING_FACTORS.orbits || SCALING_FACTORS.default)),
             eccentricity: planet.eccentricity || 0,
-            rotationSpeed: 1 / planet.sideralRotation,
-            inclination: planet.inclination || 0, // degrees
+            rotationSpeed: (2 * Math.PI) / (planet.sideralRotation / 23.9345),
+            inclination: planet.inclination || 0, // in degrees
             argument: argument // orbital rotation in the orbital plane (degrees)
         };
 

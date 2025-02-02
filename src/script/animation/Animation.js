@@ -1,10 +1,9 @@
 import * as THREE from 'three';
 
-export function updatePlanets(planets) {
-  const speedFactor = 5;
+export function updatePlanets(planets, daysPassed) {
   planets.forEach(planet => {
-    // Update the orbital parameter
-    planet.userData.angle += planet.userData.speed * speedFactor;
+    // Update the orbital parameter by adding the orbital speed (in radians per day).
+    planet.userData.angle += planet.userData.orbitalSpeed * daysPassed;
 
     const a = planet.userData.distance;
     const e = planet.userData.eccentricity || 0;
@@ -12,7 +11,7 @@ export function updatePlanets(planets) {
     const centerX = -a * e;
     const t = planet.userData.angle;
 
-    // Compute unrotated orbital position in x-z plane:
+    // Compute unrotated orbital position in the x-z plane:
     const x_un = centerX + a * Math.cos(t);
     const z_un = b * Math.sin(t);
 
@@ -28,6 +27,25 @@ export function updatePlanets(planets) {
     planet.position.z = z_oriented * Math.cos(inc);
 
     // Update the planet's self rotation
-    planet.rotation.y += planet.userData.rotationSpeed * speedFactor;
+    planet.rotation.y += planet.userData.rotationSpeed * daysPassed;
+  });
+}
+
+export function updateMoons(moonMeshes, daysPassed) {
+  moonMeshes.forEach(moon => {
+    // Update the orbital angle
+    moon.userData.angle += moon.userData.orbitalSpeed * daysPassed;
+    const d = moon.userData.orbitDistance;
+    // Compute the local orbital offset
+    const localOffset = new THREE.Vector3(
+      d * Math.cos(moon.userData.angle),
+      0,
+      d * Math.sin(moon.userData.angle)
+    );
+    // Get the parent's world position
+    const parentPos = new THREE.Vector3();
+    moon.userData.parentPlanet.getWorldPosition(parentPos);
+    // Update the moon's world position
+    moon.position.copy(parentPos).add(localOffset);
   });
 }
