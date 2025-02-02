@@ -17,12 +17,12 @@ const scene = createScene();
 const renderer = createRenderer();
 const camera = createCamera();
 const controls = createControls(camera, renderer);
-initUI(camera);
 const { sun, updateGlow } = createSun(scene, camera);
 createLights(scene, sun);
 const planets = createPlanets(scene);
 createOrbits(scene, planets);
 const moons = createMoons(scene, planets);
+initUI(camera, planets);
 
 function animate() {
     requestAnimationFrame(animate);

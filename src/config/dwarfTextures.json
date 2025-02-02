@@ -1,0 +1,30 @@
+[
+    {
+        "id": "ceres",
+        "englishName": "Ceres",
+        "texture": "ceres.jpg",
+        "fallbackColor": "#a0a0a0",
+        "hasAtmosphere": false
+    },
+    {
+        "id": "eris",
+        "englishName": "Eris",
+        "texture": "eris.jpg",
+        "fallbackColor": "#bbbbbb",
+        "hasAtmosphere": false
+    },
+    {
+        "id": "makemake",
+        "englishName": "Makemake",
+        "texture": "makemake.jpg",
+        "fallbackColor": "#ddaa88",
+        "hasAtmosphere": false
+    },
+    {
+        "id": "haumea",
+        "englishName": "Haumea",
+        "texture": "haumea.jpg",
+        "fallbackColor": "#cccccc",
+        "hasAtmosphere": false
+    }
+]

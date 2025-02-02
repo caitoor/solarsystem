@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    font-family: "Fira Sans", sans-serif;
+}
+
 body {
     margin: 0;
     overflow: hidden;
@@ -21,4 +26,15 @@ body {
     display: flex;
     justify-content: flex-start;
     gap: 1em;
+}
+
+#tooltip {
+    position: absolute;
+    padding: .4em;
+    background-color: black;
+    border: 1px solid #fff;
+    font-size: .8em;
+    color: #fff;
+    display: none;
+    z-index: 100;
 }

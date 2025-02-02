@@ -9,7 +9,7 @@ export function createPlanets(scene) {
     planetsData.forEach((planet) => {
         const radius = Math.sqrt(planet.meanRadius / (SCALING_FACTORS.planets || SCALING_FACTORS.default));
         const geometry = new THREE.SphereGeometry(radius, 32, 32);
-        const texture = textureLoader.load(`/assets/textures/${planet.englishName.toLocaleLowerCase()}.jpg`);
+        const texture = textureLoader.load(`./textures/${planet.englishName.toLocaleLowerCase()}.jpg`);
         const material = new THREE.MeshStandardMaterial({ map: texture });
         const mesh = new THREE.Mesh(geometry, material);
 
@@ -20,6 +20,7 @@ export function createPlanets(scene) {
         const argument = planet.argPeriapsis || 0; // in degrees
         mesh.userData = {
             id: planet.id,
+            name: planet.englishName,
             angle: Math.random() * Math.PI * 2,
             orbitalSpeed: (2 * Math.PI) / planet.sideralOrbit, //around the sun
             distance: Math.sqrt(planet.semimajorAxis / (SCALING_FACTORS.orbits || SCALING_FACTORS.default)),

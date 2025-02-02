@@ -34,7 +34,7 @@ export function updatePlanets(planets, daysPassed) {
 export function updateMoons(moonMeshes, daysPassed) {
   moonMeshes.forEach(moon => {
     // Update the orbital angle
-    moon.userData.angle += moon.userData.orbitalSpeed * daysPassed;
+    moon.userData.angle -= moon.userData.orbitalSpeed * daysPassed;
     const d = moon.userData.orbitDistance;
     // Compute the local orbital offset
     const localOffset = new THREE.Vector3(

@@ -1,0 +1,58 @@
+{
+    "default": {
+        "texture": null,
+        "fallbackColor": "#888888",
+        "hasAtmosphere": false
+    },
+    "bodies": [
+        {
+            "id": "lune",
+            "englishName": "Moon",
+            "texture": "moon.jpg",
+            "fallbackColor": "#888888",
+            "hasAtmosphere": false
+        },
+        {
+            "id": "europa",
+            "englishName": "Europa",
+            "texture": "europa.jpg",
+            "fallbackColor": "#888888",
+            "hasAtmosphere": false
+        },
+        {
+            "id": "callisto",
+            "englishName": "Callisto",
+            "texture": "callisto.jpg",
+            "fallbackColor": "#888888",
+            "hasAtmosphere": false
+        },
+        {
+            "id": "ganymede",
+            "englishName": "Ganymede",
+            "texture": "ganymede.jpg",
+            "fallbackColor": "#888888",
+            "hasAtmosphere": false
+        },
+        {
+            "id": "io",
+            "englishName": "Io",
+            "texture": "io.jpg",
+            "fallbackColor": "#888888",
+            "hasAtmosphere": false
+        },
+        {
+            "id": "rhea",
+            "englishName": "Rhea",
+            "texture": "rhea.jpg",
+            "fallbackColor": "#888888",
+            "hasAtmosphere": false
+        },
+        {
+            "id": "charon",
+            "englishName": "Charon",
+            "texture": null,
+            "fallbackColor": "#111111",
+            "hasAtmosphere": false
+        }
+    ]
+}
