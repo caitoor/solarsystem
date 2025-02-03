@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { createScene } from './system/Scene.js';
+import { createBackground } from './system/Background.js';
 import { createRenderer } from './system/Renderer.js';
 import { createCamera } from './system/Camera.js';
 import { createControls } from './system/Controls.js';
@@ -13,8 +14,10 @@ import { createMoons } from './bodies/Moons.js';
 import { SPEED_COEFFICIENT } from '../config/constants.js';
 import { Clouds } from './bodies/Clouds.js';
 
+
 const clock = new THREE.Clock();
 const scene = createScene();
+createBackground(scene);
 const renderer = createRenderer();
 const camera = createCamera();
 const controls = createControls(camera, renderer);
@@ -32,32 +35,32 @@ const moons = createMoons(scene, planetGroups);
 const earthGroup = planetGroups.find(p => p.userData.id.toLowerCase() === 'terre');
 let earthClouds;
 if (earthGroup) {
-  earthClouds = new Clouds(earthGroup, {
-    texture: './textures/earth_clouds.jpg', // Pfad zur Wolkentextur in public/textures/
-    color: 0xffffff,
-    opacity: 0,
-    speed: 0.55,
-    radiusFactor: 1.001
-  });
-  // Da wir Clouds als eigenständiges Mesh in die Szene einfügen (nicht als Kind der Erde),
-  // wird in der update()-Methode die Position anhand des Parent-Pivot (earthGroup) neu gesetzt.
-  scene.add(earthClouds.mesh);
+    earthClouds = new Clouds(earthGroup, {
+        texture: './textures/earth_clouds.jpg', // Pfad zur Wolkentextur in public/textures/
+        color: 0xffffff,
+        opacity: 0,
+        speed: 0.15,
+        radiusFactor: 1.02
+    });
+    // Da wir Clouds als eigenständiges Mesh in die Szene einfügen (nicht als Kind der Erde),
+    // wird in der update()-Methode die Position anhand des Parent-Pivot (earthGroup) neu gesetzt.
+    scene.add(earthClouds.mesh);
 }
 
-initUI(camera, planetGroups);
+initUI(camera, planetGroups, controls);
 
 function animate() {
-  requestAnimationFrame(animate);
-  const deltaTime = clock.getDelta() * SPEED_COEFFICIENT;
-  const daysPassed = deltaTime; // 1 Sekunde = 1 Tag bei SPEED_COEFFICIENT = 1
-  updatePlanets(planetGroups, daysPassed);
-  updateMoons(moons, daysPassed);
-  if (earthClouds) {
-    earthClouds.update(daysPassed);
-  }
-  controls.update();
-  sun.material.uniforms.time.value += 0.02;
-  updateGlow();
-  renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+    const deltaTime = clock.getDelta() * SPEED_COEFFICIENT;
+    const daysPassed = deltaTime; // 1 Sekunde = 1 Tag bei SPEED_COEFFICIENT = 1
+    updatePlanets(planetGroups, daysPassed);
+    updateMoons(moons, daysPassed);
+    if (earthClouds) {
+        earthClouds.update(daysPassed);
+    }
+    controls.update();
+    sun.material.uniforms.time.value += 0.02;
+    updateGlow();
+    renderer.render(scene, camera);
 }
 animate();

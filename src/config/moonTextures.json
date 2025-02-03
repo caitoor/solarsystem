@@ -51,7 +51,7 @@
             "id": "charon",
             "englishName": "Charon",
             "texture": null,
-            "fallbackColor": "#111111",
+            "fallbackColor": "#333333",
             "hasAtmosphere": false
         }
     ]

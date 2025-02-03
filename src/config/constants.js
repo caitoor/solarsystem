@@ -14,11 +14,33 @@ export const SCALING_FACTORS = {
     sunGlow: 1.35 // relative to its bodySize
 };
 
-//1 means 1 second in real time is 1 day in simulation
-export const SPEED_COEFFICIENT = 1;
+export const SPEED_COEFFICIENT = 1; //1 means 1 second in real time is 1 day in simulation
+
 
 export const DATA_FILTERS = {
-    minRadius: 1 // 6.2 = deimos
+    minRadius: 6 // 6.2 = deimos
 }
 
-// Weitere globale Konstanten können hier hinzugefügt werden
+export const CAMERA_SETTINGS = {
+    default: {
+        position: { x: 0, y: 20, z: 80 },
+        fov: 80,
+        near: 0.1,
+        far: 1000
+    }
+};
+
+export const LIGHT_SETTINGS = {
+    ambientDefault: {
+        color: 0xffffff,
+        intensity: 0.1
+    },
+    sunlightDefault: {
+        color: 0xffffff,
+        intensity: 10000,
+        distance: 250000,
+        decay: 2 // no effect
+    },
+};
+
+export const BACKGROUND_OPACITY = 0.2;

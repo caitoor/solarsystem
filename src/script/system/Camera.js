@@ -1,37 +1,62 @@
 // src/system/camera.js
-import gsap from 'gsap';
 import * as THREE from 'three';
+import gsap from 'gsap';
+import { CAMERA_SETTINGS } from '../../config/constants.js';
 
 export function createCamera() {
-    // Create a perspective camera with:
-    // - FOV (field of view): adjust to change how wide the camera view is.
-    // - Aspect ratio: usually window.innerWidth / window.innerHeight.
-    // - Near and far clipping planes: objects outside this range are not rendered.
+    const settings = CAMERA_SETTINGS.default;
     const camera = new THREE.PerspectiveCamera(
-        80,                              // FOV in degrees (adjust for wider or narrower view)
+        settings.fov,                            // FOV in degrees (adjust for wider or narrower view)
         window.innerWidth / window.innerHeight, // Aspect ratio
-        0.1,                             // Near clipping plane (objects closer than this are not rendered)
-        1000                             // Far clipping plane (objects farther than this are not rendered)
+        settings.near,                             // Near clipping plane (objects closer than this are not rendered)
+        settings.far                             // Far clipping plane (objects farther than this are not rendered)
     );
 
     // Set initial camera position (more zoomed out)
     // Adjust these values to change the initial view of your scene.
-    camera.position.set(0, 20, 80); // (x, y, z): Increase z for more zoom-out, adjust x/y for offset.
-    return camera;
+    camera.position.set(settings.position.x, settings.position.y, settings.position.z); return camera;
+}
+
+export function resetCameraView(camera, duration = 2) {
+    const settings = CAMERA_SETTINGS.default;
+    gsap.to(camera.position, {
+        duration: duration,
+        x: settings.position.x,
+        y: settings.position.y,
+        z: settings.position.z,
+        ease: "power2.inOut",
+        onUpdate: () => {
+            camera.lookAt(new THREE.Vector3(0, 0, 0));
+            camera.updateProjectionMatrix();
+        }
+    });
+    gsap.to(camera, {
+        duration: duration,
+        fov: settings.fov,
+        ease: "power2.inOut",
+        onUpdate: () => {
+            camera.updateProjectionMatrix();
+        }
+    });
 }
 
 export function switchToTopView(camera, duration = 2) {
-    // Animate the camera to a top view with a zoomed-out perspective.
-    // Adjust the target position values to change the top view.
+    // Ermittle die Weltposition der Sonne
+    const sunPos = new THREE.Vector3(0, 0, 0);
+
+    // Definiere den Offset (z.B. 120 Einheiten über der Sonne)
+    const offset = new THREE.Vector3(0, 120, 0);
+    const newCamPos = sunPos.clone().add(offset);
+
     gsap.to(camera.position, {
         duration: duration,
-        x: 0,      // x position remains centered
-        y: 120,    // y position: higher value for a more top-down view
-        z: 0,      // z position: 0 means the camera is directly above the origin
+        x: newCamPos.x,
+        y: newCamPos.y,
+        z: newCamPos.z,
         ease: "power2.inOut",
         onUpdate: () => {
-            // Ensure the camera always looks at the scene center during transition.
-            camera.lookAt(0, 0, 0);
+            camera.lookAt(sunPos);
+            camera.updateProjectionMatrix();
         }
     });
 }
