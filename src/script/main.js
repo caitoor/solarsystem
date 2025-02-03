@@ -11,6 +11,7 @@ import { createLights } from './system/Lights.js';
 import { initUI } from './interface.js';
 import { createMoons } from './bodies/Moons.js';
 import { SPEED_COEFFICIENT } from '../config/constants.js';
+import { Clouds } from './bodies/Clouds.js';
 
 const clock = new THREE.Clock();
 const scene = createScene();
@@ -22,6 +23,18 @@ createLights(scene, sun);
 const planets = createPlanets(scene);
 createOrbits(scene, planets);
 const moons = createMoons(scene, planets);
+const earth = planets.find(p => p.userData.id.toLowerCase() === 'terre');
+let earthClouds;
+if (earth) {
+    earthClouds = new Clouds(earth, {
+        texture: './textures/earth_clouds.jpg', // oder null, falls du nur prozedurales Noise nutzen willst
+        color: 0xffffff,
+        opacity: 0,
+        speed: 0.55,
+        radiusFactor: 1.02
+    });
+    scene.add(earthClouds.mesh);
+}
 initUI(camera, planets);
 
 function animate() {
@@ -30,6 +43,9 @@ function animate() {
     const daysPassed = deltaTime;
     updatePlanets(planets, daysPassed);
     updateMoons(moons, daysPassed);
+    if (earthClouds) {
+        earthClouds.update(daysPassed);
+    }
     controls.update();
     sun.material.uniforms.time.value += 0.02;
     updateGlow();

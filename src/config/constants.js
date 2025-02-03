@@ -18,7 +18,7 @@ export const SCALING_FACTORS = {
 export const SPEED_COEFFICIENT = 1;
 
 export const DATA_FILTERS = {
-    minRadius: 6.2 // deimos
+    minRadius: 1 // 6.2 = deimos
 }
 
 // Weitere globale Konstanten können hier hinzugefügt werden
