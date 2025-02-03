@@ -17,7 +17,7 @@ import { Clouds } from './bodies/Clouds.js';
 
 const clock = new THREE.Clock();
 const scene = createScene();
-createBackground(scene);
+// createBackground(scene); // doesn't look good 
 const renderer = createRenderer();
 const camera = createCamera();
 const controls = createControls(camera, renderer);

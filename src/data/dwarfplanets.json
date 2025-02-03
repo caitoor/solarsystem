@@ -1,0 +1,206 @@
+[
+    {
+        "id": "eris",
+        "name": "(136199) Éris",
+        "englishName": "136199 Eris",
+        "isPlanet": false,
+        "moons": [
+            {
+                "moon": "Dysnomie",
+                "rel": "https://api.le-systeme-solaire.net/rest/bodies/dysnomie"
+            }
+        ],
+        "semimajorAxis": 10180122852,
+        "perihelion": 5765732799,
+        "aphelion": 14594512904,
+        "eccentricity": 0.44068,
+        "inclination": 44.04450,
+        "mass": {
+            "massValue": 1.66000,
+            "massExponent": 22
+        },
+        "vol": {
+            "volValue": 6.59000,
+            "volExponent": 9
+        },
+        "density": 2.52000,
+        "gravity": 0.82000,
+        "escape": 1380.00000,
+        "meanRadius": 1163.00000,
+        "equaRadius": 0.00000,
+        "polarRadius": 0.00000,
+        "flattening": 0.00000,
+        "dimension": "",
+        "sideralOrbit": 203830.00000,
+        "sideralRotation": 25.92000,
+        "aroundPlanet": null,
+        "discoveredBy": "Michael E. Brown, Chadwick Trujillo, David L. Rabinowitz",
+        "discoveryDate": "05/01/2005",
+        "alternativeName": "2003 UB313",
+        "axialTilt": 0,
+        "avgTemp": 42,
+        "mainAnomaly": 205.98900,
+        "argPeriapsis": 151.63900,
+        "longAscNode": 35.95100,
+        "bodyType": "Dwarf Planet",
+        "rel": "https://api.le-systeme-solaire.net/rest/bodies/eris"
+    },
+    {
+        "id": "pluton",
+        "name": "Pluton",
+        "englishName": "Pluto",
+        "isPlanet": false,
+        "moons": [
+            {
+                "moon": "Charon",
+                "rel": "https://api.le-systeme-solaire.net/rest/bodies/charon"
+            },
+            {
+                "moon": "Nix",
+                "rel": "https://api.le-systeme-solaire.net/rest/bodies/nix"
+            },
+            {
+                "moon": "Hydra",
+                "rel": "https://api.le-systeme-solaire.net/rest/bodies/hydra"
+            },
+            {
+                "moon": "Kerberos",
+                "rel": "https://api.le-systeme-solaire.net/rest/bodies/kerberos"
+            },
+            {
+                "moon": "Styx",
+                "rel": "https://api.le-systeme-solaire.net/rest/bodies/styx"
+            }
+        ],
+        "semimajorAxis": 5906440628,
+        "perihelion": 4436756954,
+        "aphelion": 7376124302,
+        "eccentricity": 0.24880,
+        "inclination": 17.16000,
+        "mass": {
+            "massValue": 1.30300,
+            "massExponent": 22
+        },
+        "vol": {
+            "volValue": 7.15000,
+            "volExponent": 9
+        },
+        "density": 1.89000,
+        "gravity": 0.62000,
+        "escape": 1210.00000,
+        "meanRadius": 1188.30000,
+        "equaRadius": 1188.30000,
+        "polarRadius": 1195.00000,
+        "flattening": 0.00000,
+        "dimension": "",
+        "sideralOrbit": 90465.00000,
+        "sideralRotation": -153.29280,
+        "aroundPlanet": null,
+        "discoveredBy": "Clyde W. Tombaugh",
+        "discoveryDate": "18/02/1930",
+        "alternativeName": "",
+        "axialTilt": 122.5,
+        "avgTemp": 44,
+        "mainAnomaly": 14.53000,
+        "argPeriapsis": 113.17500,
+        "longAscNode": 110.08800,
+        "bodyType": "Dwarf Planet",
+        "rel": "https://api.le-systeme-solaire.net/rest/bodies/pluton"
+    },
+    {
+        "id": "haumea",
+        "name": "(136108) Hauméa",
+        "englishName": "136108 Haumea",
+        "isPlanet": false,
+        "moons": [
+            {
+                "moon": "Namaka",
+                "rel": "https://api.le-systeme-solaire.net/rest/bodies/namaka"
+            },
+            {
+                "moon": "Hi'iaka",
+                "rel": "https://api.le-systeme-solaire.net/rest/bodies/hiiaka"
+            }
+        ],
+        "semimajorAxis": 6432011461,
+        "perihelion": 5157623774,
+        "aphelion": 7706399149,
+        "eccentricity": 0.19126,
+        "inclination": 28.19000,
+        "mass": {
+            "massValue": 4.00600,
+            "massExponent": 21
+        },
+        "vol": {
+            "volValue": 2.40000,
+            "volExponent": 9
+        },
+        "density": 2.60000,
+        "gravity": 0.40100,
+        "escape": 809.00000,
+        "meanRadius": 0.00000,
+        "equaRadius": 0.00000,
+        "polarRadius": 498.00000,
+        "flattening": 0.61020,
+        "dimension": "1960 × 1518 × 996",
+        "sideralOrbit": 103774.00000,
+        "sideralRotation": 3.92000,
+        "aroundPlanet": null,
+        "discoveredBy": "Michael E. Brown, José Luis Ortiz Moreno",
+        "discoveryDate": "28/12/2004",
+        "alternativeName": "2003 EL61",
+        "axialTilt": 0,
+        "avgTemp": 50,
+        "mainAnomaly": 218.20500,
+        "argPeriapsis": 239.04100,
+        "longAscNode": 122.16700,
+        "bodyType": "Dwarf Planet",
+        "rel": "https://api.le-systeme-solaire.net/rest/bodies/haumea"
+    },
+    {
+        "id": "makemake",
+        "name": "(136472) Makémaké",
+        "englishName": "136472 Makemake",
+        "isPlanet": false,
+        "moons": [
+            {
+                "moon": "S/2015 (136472) 1",
+                "rel": "https://api.le-systeme-solaire.net/rest/bodies/mk2"
+            }
+        ],
+        "semimajorAxis": 6783345606,
+        "perihelion": 5671928586,
+        "aphelion": 7894762625,
+        "eccentricity": 0.15586,
+        "inclination": 29.00685,
+        "mass": {
+            "massValue": 4.40000,
+            "massExponent": 21
+        },
+        "vol": {
+            "volValue": 1.70000,
+            "volExponent": 9
+        },
+        "density": 1.40000,
+        "gravity": 0.50000,
+        "escape": 800.00000,
+        "meanRadius": 725.00000,
+        "equaRadius": 745.00000,
+        "polarRadius": 715.00000,
+        "flattening": 0.05000,
+        "dimension": "",
+        "sideralOrbit": 112897.00000,
+        "sideralRotation": 0.00000,
+        "aroundPlanet": null,
+        "discoveredBy": "Michael E. Brown, Chadwick Trujillo, David L. Rabinowitz",
+        "discoveryDate": "31/03/2005",
+        "alternativeName": "2005 FY9",
+        "axialTilt": 0,
+        "avgTemp": 32,
+        "mainAnomaly": 165.51400,
+        "argPeriapsis": 294.83400,
+        "longAscNode": 79.62000,
+        "bodyType": "Dwarf Planet",
+        "rel": "https://api.le-systeme-solaire.net/rest/bodies/makemake"
+    }
+]

@@ -14,5 +14,11 @@ export function createLights(scene, sun) {
         LIGHT_SETTINGS.sunlightDefault.distance,
     );
     sunLight.position.copy(sun.position);
+    sunLight.shadow.mapSize.width = 4096;
+    sunLight.shadow.mapSize.height = 4096;
+    sunLight.shadow.camera.near = 2;
+    sunLight.shadow.camera.far = 50;
+    sunLight.castShadow = true;
+    sunLight.shadow.radius = 5;
     scene.add(sunLight);
 }

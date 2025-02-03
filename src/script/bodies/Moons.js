@@ -4,20 +4,6 @@ import { DATA_FILTERS, SCALING_FACTORS } from '../../config/constants.js';
 import moonsData from '../../data/moons.json';
 import moonTextures from '../../config/moonTextures.json';
 
-/**
- * Creates moon meshes and adds them directly to the scene.
- * Each moon stores a reference to its parent planet (in userData.parentPlanet)
- * for position updates.
- *
- * Uses the configuration in moonTextures.js to assign a texture if available.
- * If a moon is listed in the "bodies" section (by matching id or englishName),
- * its texture will be loaded if provided; otherwise the fallbackColor is used.
- * If no entry exists for the moon, the "default" configuration is used.
- *
- * @param {THREE.Scene} scene - The scene to which the moons will be added.
- * @param {Array} planets - Array of planet meshes (each with userData.id set to the planet's ID).
- * @returns {Array} moonMeshes - Array of the created moon meshes.
- */
 export function createMoons(scene, planets) {
   const moonMeshes = [];
   let skippedMoons = 0;
@@ -65,6 +51,8 @@ export function createMoons(scene, planets) {
     }
 
     const moonMesh = new THREE.Mesh(geometry, material);
+    moonMesh.castShadow = true;
+    moonMesh.receiveShadow = true;
 
     // Calculate the orbit distance from the moon's semimajorAxis (scaled appropriately).
     const orbitDistance = Math.sqrt(moon.semimajorAxis / (SCALING_FACTORS.moonOrbits || SCALING_FACTORS.orbits || SCALING_FACTORS.default));

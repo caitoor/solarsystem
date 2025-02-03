@@ -13,6 +13,8 @@ export function createPlanets(scene) {
     const texture = textureLoader.load(`./textures/${planet.englishName.toLocaleLowerCase()}.jpg`);
     const material = new THREE.MeshStandardMaterial({ map: texture });
     const mesh = new THREE.Mesh(geometry, material);
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
 
     // Erstelle eine Gruppe als Pivot für diesen Planeten.
     // In dieser Gruppe wird die Achsenneigung (axialTilt) festgelegt.
