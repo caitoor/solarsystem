@@ -18,37 +18,46 @@ const scene = createScene();
 const renderer = createRenderer();
 const camera = createCamera();
 const controls = createControls(camera, renderer);
+
+// Erstelle Sonne und Lichter
 const { sun, updateGlow } = createSun(scene, camera);
 createLights(scene, sun);
-const planets = createPlanets(scene);
-createOrbits(scene, planets);
-const moons = createMoons(scene, planets);
-const earth = planets.find(p => p.userData.id.toLowerCase() === 'terre');
+
+// Erstelle Planeten – hier werden Pivot-Gruppen (planetGroups) erzeugt
+const planetGroups = createPlanets(scene);
+createOrbits(scene, planetGroups);
+const moons = createMoons(scene, planetGroups);
+
+// Finde den Erd-Pivot (wir gehen davon aus, dass in userData.id "terre" steht)
+const earthGroup = planetGroups.find(p => p.userData.id.toLowerCase() === 'terre');
 let earthClouds;
-if (earth) {
-    earthClouds = new Clouds(earth, {
-        texture: './textures/earth_clouds.jpg', // oder null, falls du nur prozedurales Noise nutzen willst
-        color: 0xffffff,
-        opacity: 0,
-        speed: 0.55,
-        radiusFactor: 1.02
-    });
-    scene.add(earthClouds.mesh);
+if (earthGroup) {
+  earthClouds = new Clouds(earthGroup, {
+    texture: './textures/earth_clouds.jpg', // Pfad zur Wolkentextur in public/textures/
+    color: 0xffffff,
+    opacity: 0,
+    speed: 0.55,
+    radiusFactor: 1.001
+  });
+  // Da wir Clouds als eigenständiges Mesh in die Szene einfügen (nicht als Kind der Erde),
+  // wird in der update()-Methode die Position anhand des Parent-Pivot (earthGroup) neu gesetzt.
+  scene.add(earthClouds.mesh);
 }
-initUI(camera, planets);
+
+initUI(camera, planetGroups);
 
 function animate() {
-    requestAnimationFrame(animate);
-    const deltaTime = clock.getDelta() * SPEED_COEFFICIENT;
-    const daysPassed = deltaTime;
-    updatePlanets(planets, daysPassed);
-    updateMoons(moons, daysPassed);
-    if (earthClouds) {
-        earthClouds.update(daysPassed);
-    }
-    controls.update();
-    sun.material.uniforms.time.value += 0.02;
-    updateGlow();
-    renderer.render(scene, camera);
+  requestAnimationFrame(animate);
+  const deltaTime = clock.getDelta() * SPEED_COEFFICIENT;
+  const daysPassed = deltaTime; // 1 Sekunde = 1 Tag bei SPEED_COEFFICIENT = 1
+  updatePlanets(planetGroups, daysPassed);
+  updateMoons(moons, daysPassed);
+  if (earthClouds) {
+    earthClouds.update(daysPassed);
+  }
+  controls.update();
+  sun.material.uniforms.time.value += 0.02;
+  updateGlow();
+  renderer.render(scene, camera);
 }
 animate();

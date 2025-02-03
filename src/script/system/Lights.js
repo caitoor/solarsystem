@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
 export function createLights(scene, sun) {
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.28);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.88);
     scene.add(ambientLight);
 
     const sunLight = new THREE.PointLight(0xffffff, 10000, 250000);
