@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { LIGHT_SETTINGS } from '../../config/constants';
 
-export function createLights(scene, sun) {
+export function createLights(scene, sun = null) {
     const ambientLight = new THREE.AmbientLight(
         LIGHT_SETTINGS.ambientDefault.color,
         LIGHT_SETTINGS.ambientDefault.intensity
@@ -13,7 +13,9 @@ export function createLights(scene, sun) {
         LIGHT_SETTINGS.sunlightDefault.intensity,
         LIGHT_SETTINGS.sunlightDefault.distance,
     );
-    sunLight.position.copy(sun.position);
+    const sunPos = new THREE.Vector3(0, 0, 0);
+    if (sun) sun.group.getWorldPosition(sunPos);
+    sunLight.position.copy(sunPos);
     sunLight.shadow.mapSize.width = 4096;
     sunLight.shadow.mapSize.height = 4096;
     sunLight.shadow.camera.near = 2;

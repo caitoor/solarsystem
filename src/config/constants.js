@@ -14,11 +14,11 @@ export const SCALING_FACTORS = {
     sunGlow: 1.35 // relative to its bodySize
 };
 
-export const SPEED_COEFFICIENT = 1; //1 means 1 second in real time is 1 day in simulation
+export const SPEED_COEFFICIENT = 1; // 1 means 1 second in real time is 1 day in simulation
 
-
+//filtering out solar system bodies by their parameters:
 export const DATA_FILTERS = {
-    minRadius: 6 // 6.2 = deimos
+    minRadius: 1 // 6.2 = deimos
 }
 
 export const CAMERA_SETTINGS = {
@@ -33,7 +33,7 @@ export const CAMERA_SETTINGS = {
 export const LIGHT_SETTINGS = {
     ambientDefault: {
         color: 0xffffff,
-        intensity: 0.1
+        intensity: 0.8
     },
     sunlightDefault: {
         color: 0xffffff,

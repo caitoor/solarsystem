@@ -1,3 +1,4 @@
+// src/script/shaders/SunShader.js
 import sunVertex from '../../assets/shaders/sunVertex.glsl?raw';
 import sunFragment from '../../assets/shaders/sunFragment.glsl?raw';
 
